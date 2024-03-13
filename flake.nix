@@ -10,7 +10,7 @@
         packages = rec {
           yawp = pkgs.stdenv.mkDerivation {
             pname = "yawp";
-            version = "2024-03-11";
+            version = if self ? rev then self.rev else "dirty";
             src = ./.;
             nativeBuildInputs = [ pkgs.zola ];
             buildPhase = "zola build";
